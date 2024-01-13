@@ -1,3 +1,5 @@
 *.pdf
 esp232-backups/*.zip
+output/
+*.zip
 *.lck
