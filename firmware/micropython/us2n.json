@@ -1,0 +1,29 @@
+{
+    "name": "ESP232",
+    "verbose": false,
+    "wlan": {
+        "sta": {
+            "essid": "<name of your access point>",
+            "password": "<password of your access point>"
+        }
+    },
+    "bridges": [
+        {
+            "tcp": {
+                "bind": ["", 8000]
+            },
+            "uart": {
+                "type": "SoftUART",
+                "tx": 21,
+                "rx": 20,
+                "timeout": 20,
+                "timeout_char": 10,
+                "port": 1,
+                "baudrate": 9600,
+                "bits": 8,
+                "parity": null,
+                "stop": 1
+            }
+        }
+    ]
+}

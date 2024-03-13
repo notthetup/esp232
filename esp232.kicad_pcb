@@ -1074,7 +1074,7 @@
     (property "ki_keywords" "cap capacitor")
     (path "/873a99c3-25a7-4878-b291-f109f4980517")
     (attr smd)
-    (fp_text reference "C4" (at 0 1.68 -270) (layer "B.SilkS") hide
+    (fp_text reference "C4" (at -0.127 -2.286) (layer "B.SilkS")
         (effects (font (size 1 1) (thickness 0.15)) (justify mirror))
       (tstamp b82507fb-8a83-41f6-a342-cd1f89c28cd8)
     )
