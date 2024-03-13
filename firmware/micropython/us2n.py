@@ -135,7 +135,6 @@ class Bridge:
     def bind(self):
         tcp = socket.socket()
         tcp.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
-    #    tcp.setblocking(False)
         tcp.bind(self.address)
         tcp.listen(5)
         print('Bridge listening at TCP({0}) for UART({1})'
@@ -347,9 +346,13 @@ def WLANStation(config, name):
     if not sta.isconnected():
         while not sta.isconnected() and attempts_left != 0:
             attempts_left -= 1
-            sta.disconnect()
+            try:
+                sta.disconnect()
+            except:
+                pass
             sta.active(False)
             sta.active(True)
+            sta.config(dhcp_hostname=name)
             sta.connect(essid, password)
             print('Connecting to WiFi...')
             n, ms = 20, 250
@@ -374,7 +377,7 @@ def WLANAccessPoint(config, name):
                       getattr(network,'AUTH_' +
                               config.get('authmode', 'OPEN').upper()))
     config.setdefault('hidden', False)
-#    config.setdefault('dhcp_hostname', name)
+    config.setdefault('dhcp_hostname', name)
     ap = network.WLAN(network.AP_IF)
     if not ap.isconnected():
         ap.active(True)

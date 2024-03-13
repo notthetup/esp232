@@ -13,7 +13,6 @@
                 "bind": ["", 8000]
             },
             "uart": {
-                "type": "SoftUART",
                 "tx": 21,
                 "rx": 20,
                 "timeout": 20,

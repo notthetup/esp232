@@ -1,5 +1,7 @@
+DEVICE ?= /dev/ttyUSB0
+
 flash:
-	ampy -p /dev/ttyUSB0 put us2.py
-	ampy -p /dev/ttyUSB0 put main.py
-	ampy -p /dev/ttyUSB0 put us2n.json
-	ampy -p /dev/ttyUSB0 reset
+	ampy -p ${DEVICE} put us2n.py
+	ampy -p ${DEVICE} put main.py
+	ampy -p ${DEVICE} put us2n.json
+	ampy -p ${DEVICE} reset
